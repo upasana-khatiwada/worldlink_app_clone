@@ -53,7 +53,7 @@ class _HomeState extends State<Home> {
             ),
             Container(
               color: Colors.grey[300],
-              child: const GridViewContainer(),
+              child:  const GridViewContainer(),
             )
 
           ],
