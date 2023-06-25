@@ -30,34 +30,34 @@ class _HomeState extends State<Home> {
               "upasanakhatiwada10",
               style: TextStyle(color: Colors.white),
             ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Icon(Icons.notifications_active),
-              ],
-            ),
+            const Icon(Icons.notifications_active),
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Container(
               color: Colors.white,
               height: 10,
             ),
-            const AutomaticCarousel(),
-            Container(
+          ),
+             const  SliverToBoxAdapter(child: AutomaticCarousel()),
+          SliverToBoxAdapter(
+            child: Container(
               color: Colors.grey[300],
               height: 20,
             ),
-            Container(
+          ),
+          SliverFillRemaining(
+             //hasScrollBody: true,
+            child: Container(
               color: Colors.grey[300],
+              //height: MediaQuery.of(context).size.height,
               child:  const GridViewContainer(),
-            )
-
-          ],
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }

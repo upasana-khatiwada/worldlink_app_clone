@@ -6,31 +6,53 @@ class RemainingDays extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicHeight(
-      child: Container(
-        color: Colors.grey,
-        // height: MediaQuery.of(context).size.height*0.8,
+    return Container(
+      color: Colors.white,
+      // height: MediaQuery.of(context).size.height*0.8,
+      child: SingleChildScrollView(
+        // shrinkWrap: true,
+        //physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.all(8.0),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisSize:MainAxisSize.min,
             children: [
-              Expanded(
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("Remaining days"),
+              ),
+              Flexible(
                 child: Center(
                   child: CircularPercentIndicator(
                     radius: 50.0,
                     // animation: true,
                     // animationDuration: 1200,
                     lineWidth: 15.0,
-                    percent: 0.4,
+                    percent: 0.9333,
                     center: const Text(
-                      "40 hours",
+                      "28 Days",
                       style: TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 20.0),
                     ),
                     circularStrokeCap: CircularStrokeCap.butt,
-                    backgroundColor: Colors.yellow,
-                    progressColor: Colors.red,
+                    backgroundColor: Colors.grey,
+                    progressColor: Colors.yellow,
                   ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6),
+                  color: Colors.indigo
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 16,right: 16,top: 8,bottom: 8),
+                  child: Text("Pay Advance",style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  ),),
                 ),
               )
             ],

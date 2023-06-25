@@ -5,61 +5,55 @@ import 'package:worldlink_app_ui_clone/home/refer_offer_page.dart';
 import 'package:worldlink_app_ui_clone/home/remaining_days.dart';
 import 'package:worldlink_app_ui_clone/home/router_page.dart';
 
-class GridViewContainer extends StatefulWidget {
+class GridViewContainer extends StatelessWidget {
   const GridViewContainer({super.key});
 
   @override
-  State<GridViewContainer> createState() => _GridViewContainerState();
+  Widget build(BuildContext context) {
+    return  StaggeredGridView.countBuilder(
+        crossAxisCount: 2,
+        mainAxisSpacing: 8,
+        crossAxisSpacing: 8,
+        itemCount: 4,
+        itemBuilder: (BuildContext context, int index) {
+          final contents = [
+            const RemainingDays(),
+            const RouterPage(),
+            const BenefitsPage(),
+            const RefferOffer(),
+          ];
+          final content = contents[index];
+          return Padding(
+            padding: const EdgeInsets.all(1),
+            child: Tile(content),
+          );
+        },
+        staggeredTileBuilder: (int index) => const StaggeredTile.fit(1),
+      );
+    
+  }
 }
+class Tile extends StatelessWidget {
+  final Widget content;
 
-class _GridViewContainerState extends State<GridViewContainer> {
+  const Tile(this.content, {super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.grey,
-        height: MediaQuery.of(context).size.height,
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
-            return SingleChildScrollView(
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height * 0.8,
-              child: StaggeredGridView.countBuilder(
-                crossAxisCount: 2,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  final contents = [
-                    const RemainingDays(),
-                    const RouterPage(),
-                    const BenefitsPage(),
-                    const RefferOffer(),
-                  ];
-                  final content = contents[index];
-                  return Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: buildItemWidget(content),
-                  );
-                },
-                staggeredTileBuilder: (index) => const StaggeredTile.fit(1),
-              ),
-            ),
-          );
-          },
-          
+    return Container(
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.all(18.0),
+        child: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              content,
+            ],
+          ),
         ),
       ),
-    );
-  }
-
-  Widget buildItemWidget(Widget content) {
-    // Customize the widget based on your needs
-    return Container(
-      width: 100,
-      height: 100,
-      color: Colors.blue,
-      child: content,
     );
   }
 }
