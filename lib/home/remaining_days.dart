@@ -41,15 +41,16 @@ class RemainingDays extends StatelessWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 20,),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
-                  color: Colors.indigo
+                  color: const Color(0xFF303E9F),
                 ),
                 child: const Padding(
                   padding: EdgeInsets.only(left: 16,right: 16,top: 8,bottom: 8),
                   child: Text("Pay Advance",style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Colors.white
                   ),),

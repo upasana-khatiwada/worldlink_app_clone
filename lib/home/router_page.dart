@@ -23,7 +23,7 @@ class RouterPage extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.white,
-                      border: Border.all(width: 1, color: Colors.blue),
+                      border: Border.all(width: 1, color: const Color(0xFF303E9F)),
                     ),
                     child: const Padding(
                       padding: EdgeInsets.all(4.0),
@@ -40,7 +40,7 @@ class RouterPage extends StatelessWidget {
                 // height: 40,
                 // width: 50,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(8),
-              color: Colors.blue),
+              color: const Color(0xFF303E9F)),
               child: const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text("Router Details"),
