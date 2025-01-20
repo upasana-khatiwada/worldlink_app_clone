@@ -23,6 +23,7 @@ class GridViewContainer extends StatelessWidget {
             const RefferOffer(),
             const SafeNet(),
             const WiFiExpress(),
+            const InternetSubscription(),
           ];
           final content = contents[index];
           return Padding(
